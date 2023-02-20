@@ -3,14 +3,16 @@
     ViewBag.Title = "Delete Contact";
 }
 
-<h2>Confirm Deletion</h2>
-<h3>@Model.FirstName @Model.LastName</h3>
+@* <h2>Confirm Deletion</h2>
+<h3>@Model.FirstName @Model.LastName</h3> *@
 
-<form asp-action="Delete" method="post">
-    <div class="mb-4">
+<span>Do you really want to delete <b>@Model.FirstName @Model.LastName</b>? </span>
+
+<form asp-action="Delete " method="post">
+    <div class="m-4">
         <input type="hidden" asp-for="ContactId" />
-        <button type="submit" class="btn btn-dark">Delete</button>
+        <button type="submit" class="btn btn-dark">Yes</button>
         <a asp-controller="Home" asp-action="Index"
-        class="btn btn-dark">Cancel</a>
+        class="btn btn-dark">No</a>
     </div>
 </form>
