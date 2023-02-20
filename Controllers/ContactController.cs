@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System;
 using Microsoft.AspNetCore.Mvc;
 using ContactManager.Models;
 
@@ -37,11 +38,18 @@ namespace ContactManager.Controllers
 
 
         [HttpPost]
-        public IActionResult Edit(Contact contact) {
+        public IActionResult Edit(Contact contact,bool detail = false) {
+
+            if(detail) {
+                ViewBag.Action = "Edit";
+                ViewBag.Categories = context.Categories.OrderBy(g => g.Name).ToList();
+                return View(contact);
+            }
+            
             if (ModelState.IsValid) {
                 if (contact.ContactId == 0) 
                     context.Contacts.Add(contact);
-                else
+                else 
                     context.Contacts.Update(contact);
                 context.SaveChanges();
                 return RedirectToAction("Index", "Home");
@@ -50,6 +58,11 @@ namespace ContactManager.Controllers
                 ViewBag.Categories = context.Categories.OrderBy(g => g.Name).ToList();
                 return View(contact);
             }
+        }
+
+        [HttpPost]
+        public IActionResult DetailEdit(Contact contact) {
+            return RedirectToAction("Edit", "Contact", new { id = contact.ContactId });
         }
 
 

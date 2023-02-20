@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System;
 
 namespace ContactManager.Models
 {
@@ -17,9 +18,12 @@ namespace ContactManager.Models
 
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Please select Category.")]
+        [Required(ErrorMessage = "Please select category.")]
         public int CategoryId { get; set; }
+
         public Category Category { get; set; }
+
+        public DateTime DateAdded { get; set; } = DateTime.Now;
 
         public string Slug =>
             FirstName?.Replace(' ', '-').ToLower() + '-' + (Category?.Name.ToString() ?? "");

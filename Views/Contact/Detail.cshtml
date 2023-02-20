@@ -6,7 +6,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-<form asp-action="Edit" method="post">
+<form asp-action="DetailEdit" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <div class="form-group">
@@ -43,7 +43,11 @@
     <div class="mb-4">
         <input type="hidden" asp-for="ContactId" />
         <button type="submit" class="btn btn-dark">Edit</button>
-        <a asp-controller="Controller" asp-route-id="ContactId" asp-action="Delete"
+
+        @* <a asp-controller="Contact" asp-route-id="ContactId" asp-action="DetailEdit"
+            class="btn btn-dark">Edit</a> *@
+
+        <a asp-controller="Contact" asp-action="Delete" asp-route-id="@Model.ContactId" asp-route-slug="@Model.Slug" 
             class="btn btn-dark">Delete</a>
         <a asp-controller="Home" asp-action="Index" 
             class="btn btn-dark">Cancel</a>
