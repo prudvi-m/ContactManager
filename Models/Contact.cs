@@ -17,10 +17,9 @@ namespace ContactManager.Models
         public string Phone { get; set; }
 
         public string Email { get; set; }
-
-        [Required(ErrorMessage = "Please select category.")]
+        
+        [Range(1, 100000000, ErrorMessage = "Please select a category.")]
         public int CategoryId { get; set; }
-
         public Category Category { get; set; }
 
         public DateTime DateAdded { get; set; } = DateTime.Now;

@@ -31,8 +31,8 @@ namespace ContactManager.Controllers
         [HttpGet]
         public IActionResult Detail(int id) {
             ViewBag.Action = "Detail";
-            ViewBag.Categories = context.Categories.OrderBy(g => g.Name).ToList();
             var contact = context.Contacts.Find(id);
+            ViewBag.Category = context.Categories.FirstOrDefault(g => g.CategoryId == contact.CategoryId).Name;
             return View(contact);
         }
 

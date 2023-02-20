@@ -9,43 +9,61 @@
 <form asp-action="DetailEdit" method="post">
     <div asp-validation-summary="All" class="text-danger"></div>
 
-    <div class="form-group">
-        <label asp-for="FirstName">First Name</label>
-        <input asp-for="FirstName" class="form-control">
+    <div class="container ">
+        <div class="row form-group border p-2 pt-3  ">
+            <div class="col-sm">
+                <b asp-for="FirstName">First Name</b>
+            </div>
+            <div class="col-sm">
+                <label asp-for="LastName">@Model.FirstName</label>
+            </div>
+        </div>
+
+        <div class="row form-group border p-2 pt-3  ">
+            <div class="col-sm">
+                <b asp-for="LastName">Last Name</b>
+            </div>
+            <div class="col-sm">
+                <label asp-for="LastName">@Model.LastName</label>
+            </div>
+        </div>
+
+        <div class="row form-group border p-2 pt-3 ">
+            <div class="col-sm">
+                <b asp-for="Phone">Phone</b>
+            </div>
+            <div class="col-sm">
+                <label asp-for="Phone">@Model.Phone</label>
+            </div>
+        </div>
+
+        
+
+        <div class="row form-group border p-2 pt-3 ">
+            <div class="col-sm">
+                <b asp-for="Email">Email</b>
+            </div>
+            <div class="col-sm">
+                <label asp-for="Email">@Model.Email</label>
+            </div>
+        </div>
+
+        <div class="row form-group border p-2 pt-3 ">
+            <div class="col-sm">
+                <b asp-for="CategoryId">Category</b>
+            </div>
+            <div class="col-sm">
+                <label asp-for="CategoryId">@ViewBag.Category</label>
+            </div>
+        </div>
+
     </div>
 
-    <div class="form-group">
-        <label asp-for="LastName">Last Name</label>
-        <input asp-for="LastName" class="form-control">
-    </div>
 
-    <div class="form-group">
-        <label asp-for="Phone">Phone</label>
-        <input asp-for="Phone" class="form-control">
-    </div>
 
-    <div class="form-group">
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email" class="form-control">
-    </div>
-
-    <div class="form-group">
-        <label asp-for="CategoryId">Category</label>
-        <select asp-for="CategoryId" class="form-control">
-            <option value="">select a Category</option>
-            @foreach (Category g in ViewBag.Categories)
-            {
-                <option value=@g.CategoryId>@g.Name</option>
-            }
-        </select>
-    </div>
-
-    <div class="mb-4">
+    <div class="m-4">
         <input type="hidden" asp-for="ContactId" />
         <button type="submit" class="btn btn-dark">Edit</button>
-
-        @* <a asp-controller="Contact" asp-route-id="ContactId" asp-action="DetailEdit"
-            class="btn btn-dark">Edit</a> *@
 
         <a asp-controller="Contact" asp-action="Delete" asp-route-id="@Model.ContactId" asp-route-slug="@Model.Slug" 
             class="btn btn-dark">Delete</a>
