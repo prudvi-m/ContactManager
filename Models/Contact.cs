@@ -27,6 +27,6 @@ namespace ContactManager.Models
         public DateTime DateAdded { get; set; } = DateTime.Now;
 
         public string Slug =>
-            FirstName?.Replace(' ', '-').ToLower() + '-' + (Category?.Name.ToString() ?? "");
+            FirstName?.Replace(' ', '-').ToLower() + '-' + LastName?.Replace(' ', '-').ToLower();
     }
 }
