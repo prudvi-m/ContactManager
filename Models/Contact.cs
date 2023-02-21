@@ -14,6 +14,9 @@ namespace ContactManager.Models
         [Required(ErrorMessage = "Please enter a Last Name.")]
         public string FirstName { get; set; }
 
+        // ^([\+]?33[-]?|[0])?[1-9][0-9]{8}$
+        [RegularExpression(@"^([\+]?33[-]?|[0])?[1-9][0-9]{8}$", 
+         ErrorMessage = "Please enter valid Phone number.")]
         public string? Phone { get; set; } = "";
 
         public string? Email { get; set; } = "";
