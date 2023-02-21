@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContactManger.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    [Migration("20230220012919_v2")]
+    [Migration("20230221000901_v2")]
     partial class v2
     {
         /// <inheritdoc />
@@ -79,6 +79,9 @@ namespace ContactManger.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Organisation")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Phone")
                         .HasColumnType("TEXT");
 
@@ -93,40 +96,44 @@ namespace ContactManger.Migrations
                         {
                             ContactId = 1,
                             CategoryId = 2,
-                            DateAdded = new DateTime(2023, 2, 20, 0, 0, 0, 0, DateTimeKind.Utc),
+                            DateAdded = new DateTime(2023, 2, 20, 18, 9, 1, 57, DateTimeKind.Local).AddTicks(3160),
                             Email = "delores@hotmail.com",
                             FirstName = "Delores",
                             LastName = "Del RIo",
+                            Organisation = "",
                             Phone = "555-987-6543"
                         },
                         new
                         {
                             ContactId = 2,
                             CategoryId = 3,
-                            DateAdded = new DateTime(2023, 2, 20, 0, 0, 0, 0, DateTimeKind.Utc),
+                            DateAdded = new DateTime(2023, 2, 20, 18, 9, 1, 57, DateTimeKind.Local).AddTicks(3570),
                             Email = "efren@hotmail.com",
                             FirstName = "Efren",
                             LastName = "Herrera",
+                            Organisation = "",
                             Phone = "555-456-7890"
                         },
                         new
                         {
                             ContactId = 3,
                             CategoryId = 3,
-                            DateAdded = new DateTime(2023, 2, 20, 0, 0, 0, 0, DateTimeKind.Utc),
+                            DateAdded = new DateTime(2023, 2, 20, 18, 9, 1, 57, DateTimeKind.Local).AddTicks(3580),
                             Email = "jzuo.govst.edu",
                             FirstName = "Jun",
                             LastName = "Zuo",
+                            Organisation = "",
                             Phone = "7085344539"
                         },
                         new
                         {
                             ContactId = 4,
                             CategoryId = 1,
-                            DateAdded = new DateTime(2023, 2, 20, 0, 0, 0, 0, DateTimeKind.Utc),
+                            DateAdded = new DateTime(2023, 2, 20, 18, 9, 1, 57, DateTimeKind.Local).AddTicks(3580),
                             Email = "maryellen@yahoo.com",
                             FirstName = "Mary Ellen",
                             LastName = "Walton",
+                            Organisation = "",
                             Phone = "555-123-4567"
                         });
                 });

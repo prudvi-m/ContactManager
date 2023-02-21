@@ -37,6 +37,7 @@ namespace ContactManger.Migrations
                     Phone = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),
                     CategoryId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Organisation = table.Column<string>(type: "TEXT", nullable: true),
                     DateAdded = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
@@ -63,13 +64,13 @@ namespace ContactManger.Migrations
 
             migrationBuilder.InsertData(
                 table: "Contacts",
-                columns: new[] { "ContactId", "CategoryId", "DateAdded", "Email", "FirstName", "LastName", "Phone" },
+                columns: new[] { "ContactId", "CategoryId", "DateAdded", "Email", "FirstName", "LastName", "Organisation", "Phone" },
                 values: new object[,]
                 {
-                    { 1, 2, new DateTime(2023, 2, 20, 0, 0, 0, 0, DateTimeKind.Utc), "delores@hotmail.com", "Delores", "Del RIo", "555-987-6543" },
-                    { 2, 3, new DateTime(2023, 2, 20, 0, 0, 0, 0, DateTimeKind.Utc), "efren@hotmail.com", "Efren", "Herrera", "555-456-7890" },
-                    { 3, 3, new DateTime(2023, 2, 20, 0, 0, 0, 0, DateTimeKind.Utc), "jzuo.govst.edu", "Jun", "Zuo", "7085344539" },
-                    { 4, 1, new DateTime(2023, 2, 20, 0, 0, 0, 0, DateTimeKind.Utc), "maryellen@yahoo.com", "Mary Ellen", "Walton", "555-123-4567" }
+                    { 1, 2, new DateTime(2023, 2, 20, 18, 9, 1, 57, DateTimeKind.Local).AddTicks(3160), "delores@hotmail.com", "Delores", "Del RIo", "", "555-987-6543" },
+                    { 2, 3, new DateTime(2023, 2, 20, 18, 9, 1, 57, DateTimeKind.Local).AddTicks(3570), "efren@hotmail.com", "Efren", "Herrera", "", "555-456-7890" },
+                    { 3, 3, new DateTime(2023, 2, 20, 18, 9, 1, 57, DateTimeKind.Local).AddTicks(3580), "jzuo.govst.edu", "Jun", "Zuo", "", "7085344539" },
+                    { 4, 1, new DateTime(2023, 2, 20, 18, 9, 1, 57, DateTimeKind.Local).AddTicks(3580), "maryellen@yahoo.com", "Mary Ellen", "Walton", "", "555-123-4567" }
                 });
 
             migrationBuilder.CreateIndex(

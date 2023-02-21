@@ -14,13 +14,15 @@ namespace ContactManager.Models
         [Required(ErrorMessage = "Please enter a Last Name.")]
         public string FirstName { get; set; }
 
-        public string Phone { get; set; }
+        public string? Phone { get; set; } = "";
 
-        public string Email { get; set; }
+        public string? Email { get; set; } = "";
         
         [Range(1, 100000000, ErrorMessage = "Please select a category.")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public string? Organisation { get; set; } = "";
 
         public DateTime DateAdded { get; set; } = DateTime.Now;
 

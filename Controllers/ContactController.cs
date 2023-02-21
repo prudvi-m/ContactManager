@@ -32,7 +32,10 @@ namespace ContactManager.Controllers
         public IActionResult Detail(int id) {
             ViewBag.Action = "Detail";
             var contact = context.Contacts.Find(id);
-            ViewBag.Category = context.Categories.FirstOrDefault(g => g.CategoryId == contact.CategoryId).Name;
+            ViewBag.Category = context.Categories.FirstOrDefault(g => g.CategoryId == contact.CategoryId)?.Name ?? "";
+            ViewBag.Email = !string.IsNullOrEmpty(contact.Email) ? contact.Email : "";
+            ViewBag.Phone = !string.IsNullOrEmpty(contact.Phone) ? contact.Phone : "";
+            ViewBag.Organisation = !string.IsNullOrEmpty(contact.Organisation) ? contact.Organisation : "";
             return View(contact);
         }
 
@@ -53,7 +56,7 @@ namespace ContactManager.Controllers
                     context.Contacts.Update(contact);
                 context.SaveChanges();
                 return RedirectToAction("Index", "Home");
-            } else {
+            } else {    
                 ViewBag.Action = (contact.ContactId == 0) ? "Add": "Edit";
                 ViewBag.Categories = context.Categories.OrderBy(g => g.Name).ToList();
                 return View(contact);

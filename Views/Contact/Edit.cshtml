@@ -40,6 +40,11 @@
         </select>
     </div>
 
+    <div class="form-group">
+        <label asp-for="Organisation">Organisation</label>
+        <input asp-for="Organisation" class="form-control">
+    </div>
+    
     <div class="mb-4">
         <input type="hidden" asp-for="ContactId" />
         <button type="submit" class="btn btn-dark">@ViewBag.Action</button>

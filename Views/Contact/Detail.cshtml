@@ -10,7 +10,7 @@
     <div asp-validation-summary="All" class="text-danger"></div>
 
     <div class="container ">
-        <div class="row form-group border p-2 pt-3  ">
+        <div class="row form-group border p-2 pt-3 mb-2  ">
             <div class="col-sm">
                 <b asp-for="FirstName">First Name</b>
             </div>
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="row form-group border p-2 pt-3  ">
+        <div class="row form-group border p-2 pt-3 mb-2  ">
             <div class="col-sm">
                 <b asp-for="LastName">Last Name</b>
             </div>
@@ -28,43 +28,57 @@
             </div>
         </div>
 
-        <div class="row form-group border p-2 pt-3 ">
+        <div class="row border p-2 pt-3 mb-2 ">
             <div class="col-sm">
-                <b asp-for="Phone">Phone</b>
+                <b>Phone</b>
             </div>
             <div class="col-sm">
-                <label asp-for="Phone">@Model.Phone</label>
+                <label>@ViewBag.Phone</label>
             </div>
         </div>
 
+        <div class="row border p-2 pt-3 mb-2 ">
+            <div class="col-sm">
+                <b>Email</b>
+            </div>
+            <div class="col-sm">
+                <label>@ViewBag.Email</label>
+            </div>
+        </div>
+
+
+        <div class="row form-group border p-2 pt-3 mb-2 ">
+            <div class="col-sm">
+                <b>Category</b>
+            </div>
+            <div class="col-sm">
+                <label>@ViewBag.Category</label>
+            </div>
+        </div>
         
-
-        <div class="row form-group border p-2 pt-3 ">
+        <div class="row border p-2 pt-3 mb-2 ">
             <div class="col-sm">
-                <b asp-for="Email">Email</b>
+                <b>Organisation</b>
             </div>
             <div class="col-sm">
-                <label asp-for="Email">@Model.Email</label>
+                <label>@ViewBag.Organisation</label>
             </div>
         </div>
 
-        <div class="row form-group border p-2 pt-3 ">
+        <div class="row form-group border p-2 pt-3 mb-2 ">
             <div class="col-sm">
-                <b asp-for="CategoryId">Category</b>
+                <b asp-for="DateAdded">Date Added</b>
             </div>
             <div class="col-sm">
-                <label asp-for="CategoryId">@ViewBag.Category</label>
+                <label asp-for="DateAdded">@Model.DateAdded</label>
             </div>
         </div>
 
     </div>
 
-
-
     <div class="m-4">
         <input type="hidden" asp-for="ContactId" />
         <button type="submit" class="btn btn-dark">Edit</button>
-
         <a asp-controller="Contact" asp-action="Delete" asp-route-id="@Model.ContactId" asp-route-slug="@Model.Slug" 
             class="btn btn-dark">Delete</a>
         <a asp-controller="Home" asp-action="Index" 
